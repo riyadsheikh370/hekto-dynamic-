@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply text-[42px] text-[#1A0B5B] text-center font-bold py-[30px]
+    }
+}
+
+@layer components {
+    .pink {
+        @apply text-[#FB2E86]
+    }
+
+    .bgpink {
+        @apply bg-[#FB2E86]
+    }
+
+    .dark-b {
+        @apply text-[#151875]
+    }
+}
+
+@layer utilities {
+    .nav {
+        @apply relative text-[#151875] hover:text-[#FB2E86] px-4
+    }
+    .nav::after{
+        @apply content-[''] bg-[#FB2E86] h-[3px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300
+    }
+    .nav:hover::after{
+        @apply w-[100%]
+    }
+}
+
+.slick-dots li {
+    display: inline-block;
+}
+
+.slick-dots .slick-active div{
+    border-bottom: 3px solid #FB2E86 !important;
+}

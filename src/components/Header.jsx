@@ -8,7 +8,7 @@ import { LuShoppingCart } from "react-icons/lu";
 const Header = () => {
   return (
     <>
-      <div className="bg-[#7E33E0] h-[44px] w-full">
+      <section className='bg-[#7E33E0] h-[44px] w-full'>
         <Container>
           <div className="flex w-[100%] justify-between font-jsans">
             <div className="w-[20%] flex h-[44px] items-center text-[#F1F1F1]">
@@ -45,7 +45,7 @@ const Header = () => {
             </div>
           </div>
         </Container>
-      </div>
+      </section>
     </>
   )
 }
