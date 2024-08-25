@@ -24,10 +24,10 @@ const TrendingP = () => {
                 <Container>
                     <h1 className='pb-[50px]'>Trending Products</h1>
                     <div className="flex justify-between">
-                        <div className="w-[23%] shadow-md ... text-center">
+                        <div className="w-[23%] shadow-md ... text-center h-[330px]">
                             <div className="py-[60px] px-[130px] bg-[#F6F7FB] relative group overflow-hidden">
-                                <img className='h-[190px]' src={Tp1} alt="" />
-                                <div className="h-[50px] w-[10%] absolute group-hover:left-[25px] left-[-260px] top-[-1px] duration-300 ease-in-out">
+                                <img className='h-[120px]' src={Tp1} alt="" />
+                                <div className="h-[50px] w-[10%] absolute group-hover:left-[25px] left-[-260px] top-[-70px] duration-300 ease-in-out">
                                     <ul className='mt-[180px] text-[#1389FF] text-[20px]'>
                                         <li className='hover:text-[#151875]'><LuShoppingCart /></li>
                                         <li className='py-4 hover:text-[#151875]'><FaRegHeart /></li>
@@ -45,10 +45,10 @@ const TrendingP = () => {
                         </div>
 
 
-                        <div className="w-[23%] shadow-md ... text-center font-jsans">
+                        <div className="w-[23%] shadow-md ... text-center font-jsans h-[330px]">
                             <div className="py-[60px] px-[130px] bg-[#F6F7FB] relative group overflow-hidden">
-                                <img className='h-[190px]' src={Tp2} alt="" />
-                                <div className="h-[50px] w-[10%] absolute group-hover:left-[25px] left-[-260px] top-[-1px] duration-300 ease-in-out">
+                                <img className='h-[120px]' src={Tp2} alt="" />
+                                <div className="h-[50px] w-[10%] absolute group-hover:left-[25px] left-[-260px] top-[-70px] duration-300 ease-in-out">
                                     <ul className='mt-[180px] text-[#1389FF] text-[20px]'>
                                         <li className='hover:text-[#151875]'><LuShoppingCart /></li>
                                         <li className='py-4 hover:text-[#151875]'><FaRegHeart /></li>
@@ -66,10 +66,10 @@ const TrendingP = () => {
                         </div>
 
 
-                        <div className="w-[23%] shadow-md ... text-center font-jsans">
+                        <div className="w-[23%] shadow-md ... text-center font-jsans h-[330px]">
                             <div className="py-[60px] px-[130px] bg-[#F6F7FB] relative group overflow-hidden">
-                                <img className='h-[190px]' src={Tp3} alt="" />
-                                <div className="h-[50px] w-[10%] absolute group-hover:left-[25px] left-[-260px] top-[-1px] duration-300 ease-in-out">
+                                <img className='h-[120px]' src={Tp3} alt="" />
+                                <div className="h-[50px] w-[10%] absolute group-hover:left-[25px] left-[-260px] top-[-70px] duration-300 ease-in-out">
                                     <ul className='mt-[180px] text-[#1389FF] text-[20px]'>
                                         <li className='hover:text-[#151875]'><LuShoppingCart /></li>
                                         <li className='py-4 hover:text-[#151875]'><FaRegHeart /></li>
@@ -86,10 +86,10 @@ const TrendingP = () => {
                             </div>
                         </div>
 
-                        <div className="w-[23%] shadow-md ... text-center font-jsans">
+                        <div className="w-[23%] shadow-md ... text-center font-jsans h-[330px]">
                             <div className="py-[60px] px-[130px] bg-[#F6F7FB] relative group overflow-hidden">
-                                <img className='h-[190px]' src={Fl4} alt="" />
-                                <div className="h-[50px] w-[10%] absolute group-hover:left-[25px] left-[-260px] top-[-1px] duration-300 ease-in-out">
+                                <img className='h-[120px]' src={Fl4} alt="" />
+                                <div className="h-[50px] w-[10%] absolute group-hover:left-[25px] left-[-260px] top-[-70px] duration-300 ease-in-out">
                                     <ul className='mt-[180px] text-[#1389FF] text-[20px]'>
                                         <li className='hover:text-[#151875]'><LuShoppingCart /></li>
                                         <li className='py-4 hover:text-[#151875]'><FaRegHeart /></li>
