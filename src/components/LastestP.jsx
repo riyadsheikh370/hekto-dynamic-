@@ -17,7 +17,7 @@ import { FaSearchPlus } from "react-icons/fa";
 const LastestP = () => {
     return (
         <>
-            <section>
+            <section className='pt-[30px]'>
                 <Container>
                     <h1>Leatest Products</h1>
                     <div className="w-[33%] mx-auto">

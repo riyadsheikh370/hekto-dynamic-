@@ -33,11 +33,3 @@
         @apply w-[100%]
     }
 }
-
-.slick-dots li {
-    display: inline-block;
-}
-
-.slick-dots .slick-active div{
-    border-bottom: 3px solid #FB2E86 !important;
-}

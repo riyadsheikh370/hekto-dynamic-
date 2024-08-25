@@ -24,28 +24,34 @@ const Navbar = () => {
                 </Link>
                 <Link to="/pages">
                   <li className='flex items-center p-3 text-[16px] hover:text-[#FB2E86]'>
-                    Pages
+                    Products
                     <IoIosArrowDown />
                   </li>
                 </Link>
-                <li className='flex items-center p-3 text-[16px] hover:text-[#FB2E86]'>
-                  Products
-                  <IoIosArrowDown />
-                </li>
+                <Link to="/shop">
+                  <li className='flex items-center p-3 text-[16px] hover:text-[#FB2E86]'>
+                    Shop
+                    <IoIosArrowDown />
+                  </li>
+                </Link>
                 <Link to="/blog">
                   <li className='flex items-center p-3 text-[16px] hover:text-[#FB2E86]'>
                     Blog
                     <IoIosArrowDown />
                   </li>
                 </Link>
-                <li className='flex items-center p-3 text-[16px] hover:text-[#FB2E86]'>
-                  Shop
-                  <IoIosArrowDown />
-                </li>
-                <li className='flex items-center  text-[16px] hover:text-[#FB2E86]'>
-                  Contact
-                  <IoIosArrowDown />
-                </li>
+                <Link to="/about">
+                  <li className='flex items-center p-3 text-[16px] hover:text-[#FB2E86]'>
+                    About
+                    <IoIosArrowDown />
+                  </li>
+                </Link>
+                <Link to="/contact">
+                  <li className='flex items-center  text-[16px] hover:text-[#FB2E86]'>
+                    Contact
+                    <IoIosArrowDown />
+                  </li>
+                </Link>
               </ul>
             </div>
             <div className="w-[30%] justify-end ">

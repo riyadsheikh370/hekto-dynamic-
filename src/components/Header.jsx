@@ -4,6 +4,7 @@ import { CiMail } from "react-icons/ci";
 import { MdAddCall } from "react-icons/md";
 import { IoIosArrowDown } from "react-icons/io";
 import { LuShoppingCart } from "react-icons/lu";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -32,13 +33,15 @@ const Header = () => {
                 <IoIosArrowDown />
               </div>
               <div className="flex w-[20%] h-[44px] items-center">
-                <h5 className='p-2'>Login</h5>
-                <IoIosArrowDown />
-              </div>
-              <div className="flex w-[20%] h-[44px] items-center">
                 <h5 className='p-2'>Whishlist</h5>
                 <IoIosArrowDown />
               </div>
+              <Link to="/login">
+                <div className="flex w-[20%] h-[44px] items-center">
+                  <h5 className='p-2'>Login</h5>
+                  <IoIosArrowDown />
+                </div>
+              </Link>
             </div>
             <div className="flex w-[10%] h-[44px] items-center text-[#F1F1F1] justify-end">
               <LuShoppingCart className='pl-[-30]' />
