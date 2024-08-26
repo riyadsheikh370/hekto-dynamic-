@@ -19,12 +19,24 @@ const Pages = () => {
 
     let pageNumber = []
 
-    for(let i=0; i < Math.ceil(data.length / perPage); i++){
+    for (let i = 0; i < Math.ceil(data.length / perPage); i++) {
         pageNumber.push(i)
     }
-    
-    let paginate = (pageNumber) =>{
+
+    let paginate = (pageNumber) => {
         setCurrentpage(pageNumber + 1);
+    }
+
+    let next = () => {
+        if (currentPage < pageNumber.length) {
+            setCurrentpage((state) => state + 1)
+        }
+    }
+
+    let prev = () => {
+        if (currentPage > 1) {
+            setCurrentpage((state) => state - 1)
+        }
     }
 
     return (
@@ -42,7 +54,7 @@ const Pages = () => {
                             <Post allData={allData} />
                         </div>
                         <div className="text-end">
-                            <PaginationArea pageNumber={pageNumber} paginate={paginate} />
+                            <PaginationArea pageNumber={pageNumber} paginate={paginate} currentPage={currentPage} next={next} prev={prev} />
                         </div>
                     </div>
                 </Container>

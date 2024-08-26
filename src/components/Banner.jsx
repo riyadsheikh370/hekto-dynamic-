@@ -2,6 +2,7 @@ import React from 'react'
 import Container from './Container'
 import Bannerlight from "../assets/banner light.png"
 import Bannerchair from "../assets/banner chair.png"
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -18,7 +19,9 @@ const Banner = () => {
                                 Trends in 2024</h4>
                             <h6 className='pb-[20px] font-jsans text-[#8A8FB9] text-[16px] font-bold'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Magna in est adipiscing
                                 in phasellus non in justo.</h6>
-                            <h4 className='font-jsans text-center text-[white] py-[10px] w-[150px] text-[17px] bgpink'>Shop Now</h4>
+                            <Link to="/pages">
+                                <h4 className='font-jsans text-center text-[white] py-[10px] w-[150px] text-[17px] bgpink'>Shop Now</h4>
+                            </Link>
                         </div>
                         <div className="w-[35%]">
                             <img className='pt-[90px]' src={Bannerchair} alt="" />
