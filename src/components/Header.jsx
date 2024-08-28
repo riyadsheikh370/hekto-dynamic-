@@ -32,14 +32,19 @@ const Header = () => {
                 <h5 className='p-2'>USD</h5>
                 <IoIosArrowDown />
               </div>
-              <div className="flex w-[20%] h-[44px] items-center">
-                <h5 className='p-2'>Whishlist</h5>
-                <IoIosArrowDown />
-              </div>
+              <Link to="/my">
+                <div className="flex w-[20%] h-[44px] items-center">
+                  <h5 className='p-2'>Account</h5>
+                </div>
+              </Link>
               <Link to="/login">
                 <div className="flex w-[20%] h-[44px] items-center">
                   <h5 className='p-2'>Login</h5>
-                  <IoIosArrowDown />
+                </div>
+              </Link>
+              <Link to="/signup">
+                <div className="flex w-[20%] h-[44px] items-center">
+                  <h5 className='p-2'>Signup</h5>
                 </div>
               </Link>
             </div>

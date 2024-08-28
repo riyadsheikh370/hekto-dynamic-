@@ -3,17 +3,30 @@ import { RxCross2 } from "react-icons/rx";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { productIncrement } from "../components/slice/productSlice";
+import { productIncrement, productDecrement, removeProduct } from "../components/slice/productSlice";
 
 const Cart = () => {
 
     let dispatch = useDispatch()
     let data = useSelector((state) => state.product.cartItem)
 
-
     let handleIncrement = (index) => {
         dispatch(productIncrement(index))
     }
+    let handledecrement = (index) => {
+        dispatch(productDecrement(index))
+    }
+    let handleRemove = (index) => {
+        dispatch(removeProduct(index))
+    }
+
+
+    const { totalPrice, totalquantity } = data.reduce((acc, item) => {
+        acc.totalPrice += item.price * item.qun
+        acc.totalquantity += item.qun
+        return acc
+    }, { totalPrice: 0, totalquantity: 0 })
+
 
     return (
         <div className="my-20">
@@ -42,7 +55,7 @@ const Cart = () => {
                     <div className="flex my-14 items-center">
                         <div className="w-[40%]">
                             <div className="flex justify-around items-center">
-                                <div className="">
+                                <div className="" onClick={() => handleRemove(index)}>
                                     <RxCross2 />
                                 </div>
                                 <div className="">
@@ -58,13 +71,13 @@ const Cart = () => {
                         </div>
                         <div className="w-[30%] text-center">
                             <div className="flex w-[150px] h-[50px] justify-around items-center mx-auto">
-                                <div className="">-</div>
+                                <div onClick={() => handledecrement(index)} className="">-</div>
                                 <div className="">{item.qun}</div>
                                 <div onClick={() => handleIncrement(index)} className="">+</div>
                             </div>
                         </div>
                         <div className="w-[15%]">
-                            <h4 className="text-center">$656554</h4>
+                            <h4 className="text-center">${item.price * item.qun}</h4>
                         </div>
                     </div>
 
@@ -73,20 +86,12 @@ const Cart = () => {
                 <div className="flex justify-end">
                     <div className="">
                         <h2 className="text-[#262626] font-sans text-[20px] text-end font-bold">Cart totals</h2>
-                        <div className="flex w-[400px] border-2 border-[#222] justify-around">
-                            <div className="">
-                                <h3>Subtotal</h3>
-                            </div>
-                            <div className="">
-                                <h3>88888$</h3>
-                            </div>
-                        </div>
                         <div className="flex my-2 w-[400px] border-2 border-[#222] justify-around">
                             <div className="">
                                 <h3>Quantity</h3>
                             </div>
                             <div className="">
-                                <h3>55</h3>
+                                <h3>{totalquantity}</h3>
                             </div>
                         </div>
                         <div className="flex w-[400px] border-2 border-[#222] justify-around">
@@ -94,7 +99,7 @@ const Cart = () => {
                                 <h3>Total</h3>
                             </div>
                             <div className="">
-                                <h3>389.99 $</h3>
+                                <h3>{totalPrice}$</h3>
                             </div>
                         </div>
                         <div className="mt-2">
