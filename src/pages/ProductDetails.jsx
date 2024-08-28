@@ -2,12 +2,19 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import Container from '../components/Container';
-import Tp1 from "../assets/tp1.png"
+import { IoMdStarHalf } from "react-icons/io";
+import { CiStar } from "react-icons/ci";
+import { FaStar } from "react-icons/fa6";
 
+import {useDispatch } from 'react-redux'
+import { addToCart } from '../components/slice/productSlice';
 
 const ProductDetails = () => {
     let [singleData, setSingleData] = useState([])
     let productId = useParams()
+    let dispatch = useDispatch()
+
+
 
 
     let getData = () => {
@@ -22,8 +29,19 @@ const ProductDetails = () => {
     }, [])
 
 
-    console.log(singleData);
 
+
+    let clientRating = Array.from({ length: 5 }, (elm, index) => {
+        let ratingNumber = index + 0.5
+        return (
+            singleData.rating >= index + 1 ? <FaStar className='text-[#FFD881]' /> : singleData.rating > ratingNumber ? <IoMdStarHalf className='text-[#FFD881]' /> : <CiStar />
+        )
+    })
+
+
+    let handleAddTocart = (item) =>{
+        dispatch(addToCart(item))
+    }
 
     return (
         <>
@@ -35,15 +53,17 @@ const ProductDetails = () => {
                     </Container>
                 </div>
                 <Container>
-                    <div className="flex-wrap justify-between">
-                        <div className="w-[48%] my-5">
-                            <img src={Tp1} alt="" />
-                        </div>
+                    <div className="flex flex-wrap justify-between">
+                        {singleData?.images?.map((item) => (
+                            <div className="w-[48%] my-5">
+                                <img src={item} alt="" />
+                            </div>
+                        ))}
                     </div>
                     <div className="">
                         <h3 className='text-[#262626] font-sans lg:text-[36px] text-[23px] font-bold'>Product</h3>
                         <div className="flex items-center my-4">
-
+                            {clientRating}
                             <div className="pl-3">
                                 <span>Review</span>
                             </div>
@@ -57,7 +77,7 @@ const ProductDetails = () => {
                             <a className="py-[16px] px-[45px] border-2 border-[#262626] inline-block hover:bg-[#262626] hover:text-white cursor-pointer duration-300 ease-in-out">
                                 Add to Wish List
                             </a>
-                            <Link to="/cart" >
+                            <Link to="/cart"  onClick={()=>handleAddTocart(singleData)}>
                                 <a className="py-[16px] px-[45px] border-2 border-[#262626] inline-block hover:bg-[#262626] hover:text-white cursor-pointer ms-4 duration-300 ease-in-out">
                                     Add to Cart
                                 </a>

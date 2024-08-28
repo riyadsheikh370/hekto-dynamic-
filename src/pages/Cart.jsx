@@ -2,9 +2,18 @@ import React from "react";
 import { RxCross2 } from "react-icons/rx";
 import Container from "../components/Container";
 import { Link } from "react-router-dom";
-import Tp1 from "../assets/tp1.png"
+import { useDispatch, useSelector } from "react-redux";
+import { productIncrement } from "../components/slice/productSlice";
 
 const Cart = () => {
+
+    let dispatch = useDispatch()
+    let data = useSelector((state) => state.product.cartItem)
+
+
+    let handleIncrement = (index) => {
+        dispatch(productIncrement(index))
+    }
 
     return (
         <div className="my-20">
@@ -29,35 +38,37 @@ const Cart = () => {
                         <h3 className="text-center text-[#262626] font-sans text-[20px] font-bold">Total</h3>
                     </div>
                 </div>
-                <div className="flex my-14 items-center">
-                    <div className="w-[40%]">
-                        <div className="flex justify-around items-center">
-                            <div className="">
-                                <RxCross2 />
-                            </div>
-                            <div className="">
-                                <img className="w-[100px] h-[100px]" src={Tp1} alt="" />
-                            </div>
-                            <div className="">
-                                <h3 className="text-[#262626] font-sans text-[16px] font-normal">hffsfsffsafhf</h3>
+                {data.map((item, index) => (
+                    <div className="flex my-14 items-center">
+                        <div className="w-[40%]">
+                            <div className="flex justify-around items-center">
+                                <div className="">
+                                    <RxCross2 />
+                                </div>
+                                <div className="">
+                                    <img className="w-[100px] h-[100px]" src={item.thumbnail} alt="" />
+                                </div>
+                                <div className="">
+                                    <h3 className="text-[#262626] font-sans text-[16px] font-normal">{item.title}</h3>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="w-[15%]">
-                        <h4 className="text-center">$2222</h4>
-                    </div>
-                    <div className="w-[30%] text-center">
-                        <div className="flex w-[150px] h-[50px] justify-around items-center mx-auto">
-                            <div className="">-</div>
-                            <div className="">0</div>
-                            <div className="">+</div>
+                        <div className="w-[15%]">
+                            <h4 className="text-center">${item.price}</h4>
+                        </div>
+                        <div className="w-[30%] text-center">
+                            <div className="flex w-[150px] h-[50px] justify-around items-center mx-auto">
+                                <div className="">-</div>
+                                <div className="">{item.qun}</div>
+                                <div onClick={() => handleIncrement(index)} className="">+</div>
+                            </div>
+                        </div>
+                        <div className="w-[15%]">
+                            <h4 className="text-center">$656554</h4>
                         </div>
                     </div>
-                    <div className="w-[15%]">
-                        <h4 className="text-center">$656554</h4>
-                    </div>
-                </div>
 
+                ))}
 
                 <div className="flex justify-end">
                     <div className="">
