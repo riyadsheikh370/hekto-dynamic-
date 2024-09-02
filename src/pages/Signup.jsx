@@ -1,19 +1,15 @@
-// import {
-//     getAuth,
-//     createUserWithEmailAndPassword,
-//     updateProfile,
-// } from "firebase/auth";
 import {
     getAuth,
     createUserWithEmailAndPassword,
+    updateProfile,
 } from "firebase/auth";
-// import { getDatabase, ref, set } from "firebase/database";
+import { getDatabase, ref, set } from "firebase/database";
 import React, { useState } from "react";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { IoIosArrowForward } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
-// import { toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Container from "../components/Container";
 
@@ -21,7 +17,7 @@ const Signup = () => {
 
 
     const auth = getAuth();
-    // const db = getDatabase();
+    const db = getDatabase();
     let navigate = useNavigate();
     let [firstName, setFirstName] = useState("");
     let [email, setEmail] = useState("");
@@ -57,15 +53,15 @@ const Signup = () => {
                     navigate("/login");
                 }, 2000);
             })
-            //         .then(() => {
-            //             set(ref(db, "user/"), {
-            //                 username: firstName,
-            //                 email: email,
-            //             });
-            //         })
-            //         .then(() => {
-            //             console.log("done");
-            //         })
+                    .then(() => {
+                        set(ref(db, "user/"), {
+                            username: firstName,
+                            email: email,
+                        });
+                    })
+                    .then(() => {
+                        console.log("done");
+                    })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -90,7 +86,7 @@ const Signup = () => {
                             </p>
                         </div>
                     </div>
-                    {/* <ToastContainer
+                    <ToastContainer
                         position="top-center"
                         autoClose={5000}
                         hideProgressBar={false}
@@ -101,7 +97,7 @@ const Signup = () => {
                         draggable
                         pauseOnHover
                         theme="light"
-                    /> */}
+                    />
 
                     <div className="lg:w-[45%] w-full mt-[50px]">
                         <p className="font-dmsans text-[18px] font-normal text-[#767676] leading-[30px]">
@@ -158,7 +154,7 @@ const Signup = () => {
                                         type="email"
                                         required
                                         placeholder="company@domain.com"
-                                        // value={email}
+                                        value={email}
                                         className="font-dmsans text-[14px] font-normal text-[#767676] outline-none w-full h-[20px]"
                                     />
                                 </div>
